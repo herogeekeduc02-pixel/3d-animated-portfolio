@@ -1,7 +1,7 @@
-const Hero = () => {
-    return {
-        <div className = ''>Hero</div>
-    }
-}
+import "./hero.css";
 
-export default Hero
+const Hero = () => {
+    return <div className = 'hero'>Hero</div>;
+};
+
+export default Hero;

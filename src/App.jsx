@@ -7,10 +7,22 @@ import Contact from "./components/contact/Contact";
 const App = () => {
   return (
     <div className="container">
-      <Hero/>
-      <Services/>
-      <Portifolio/>
-      <Contact/>
+      <section id = "#hero">
+        <Hero/>
+      </section>
+
+      <section id = "#services">
+        <Services/>
+      </section>
+
+      <section id = "#portifolio">
+        <Portifolio/>
+      </section>
+
+      <section id = "#contact">
+        <Contact/>
+      </section>
+      
     </div>
   )
 }

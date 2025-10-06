@@ -1,4 +1,5 @@
 import "./hero.css";
+import Speech from "./Speech.jsx";
 
 const Hero = () => {
     return <div className = "hero">
@@ -42,6 +43,32 @@ const Hero = () => {
             </a>
         </div>
         <div className="hSection right">
+            {/* follow */}
+            <div className="follow">
+                <a href="/">
+                    <img src="/instagram.png" alt="" />
+                </a>
+                <a href="/">
+                    <img src="/facebook.png" alt="" />
+                </a>
+                <a href="/">
+                    <img src="/youtube.png" alt="" />
+                </a>
+            </div>
+            {/* BUNBBLE */}
+            <Speech/>
+
+            {/* CERTIFICATE */}
+            <div className="certificate">
+                <img src="/certificado.png" alt="" />
+                <br />
+                CERTIFICAÇÂO HERO GEEK 
+                <br />
+                PPROFISSIONAL 
+                <br />
+                DESENVOLVEDOR WEB E UI DESIGNER
+            </div>
+            
             
         </div>
 

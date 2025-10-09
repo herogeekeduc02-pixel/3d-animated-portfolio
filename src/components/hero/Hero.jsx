@@ -19,7 +19,7 @@ const Hero = () => {
                 </div>
             </div>
             {/* Scroll SVG*/}
-            <a href="#services">
+            <a href="#services" className="scroll">
                 <svg
                     width="50px"
                     height="50px"
@@ -64,10 +64,53 @@ const Hero = () => {
                 <br />
                 CERTIFICAÇÂO HERO GEEK 
                 <br />
-                PPROFISSIONAL 
+                PROFISSIONAL 
                 <br />
                 DESENVOLVEDOR WEB E UI DESIGNER
             </div>
+
+            {/* Contact Button */}
+            <a href="/#contact" className="contactlink">
+                <div className="contactButton">
+                    <svg viewBox="0 0 200 200" width="150" height="150">
+                        <circle cx="100" cy="100" r="90" fill="pink"/>
+
+                        <path 
+                            id="innerCirclePath"
+                            fill="none"
+                            d = "M 100, 100 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
+                        />
+
+                        <text className="circleText" >
+
+                            <textPath href="#innerCirclePath">
+                                ENTRE EM CONTATO
+                            </textPath>
+                        </text>
+                        <text className="circleText" >
+
+                            <textPath href="#innerCirclePath" startOffset={"50%"}>
+                                E CONTRATE AGORA .
+                            </textPath>
+                        </text>
+
+                    </svg>
+                    <div className="arrow">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="50"
+                            height="50"
+                            fill="none"
+                            stroke="black"
+                            strokeWidth="2"
+                        >
+                            <line x1="6" y1="18" x2="18" y2="6" />
+                            <polyline points="9 6 18 6 18 15" />
+                        </svg>
+                    </div>
+                </div>
+            </a>
             
             
         </div>

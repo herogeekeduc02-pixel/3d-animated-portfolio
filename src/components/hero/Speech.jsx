@@ -1,3 +1,5 @@
+import "./hero.css";
+
 const Speech = () => {
     return (
         <div className = 'bubbleContainer'>

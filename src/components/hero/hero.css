@@ -5,6 +5,33 @@
 
 }
 
+.bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 50;
+    z-index: -1;
+}
+
+.hImg{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    height: 80%;
+    width: max-content;
+}
+
+.hImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20%;
+}
+
 .hSection{
     width: 50%;
     height: 100%;

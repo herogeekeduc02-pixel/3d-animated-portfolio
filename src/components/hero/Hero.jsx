@@ -1,25 +1,69 @@
+import { animate } from "motion/react";
 import "./hero.css";
 import Speech from "./Speech.jsx";
+import { motion, stagger } from "motion/react";
+
+const awardVariants = {
+    intial: {
+        x: -100,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            duration: 5,
+            staggerChildren: 0.2,
+        }
+    }
+}
+
+const followVariants = {
+    intial: {
+        y: -100,
+        opacity: 0,
+    },
+    animate: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 5,
+            staggerChildren: 0.5,
+        }
+    } 
+}
 
 const Hero = () => {
     return <div className = "hero">
         <div className="hSection left">
-            <h1 className="hTitle">
-                Olá a Todos 
-                <br/>
-                <span>Eu sou Otávio</span>
-            </h1>
-            <div className="awards">
-                <h2>Dev Experiente !</h2>
-                <p>Programador com ampla gama de conhecimentos.</p>
-                <div className="awardList">
-                    <img src="/award1.png" alt="" />
-                    <img src="/award2.png" alt="" />
-                    <img src="/award3.png" alt="" />
-                </div>
-            </div>
+            <motion.h1
+                initial={{ y: -100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 3 }}
+                className="hTitle">
+                    Olá a Todos
+                    <br />
+                    <span>Eu sou David</span>
+            </motion.h1>
+            <motion.div >
+                <motion.h2 variants={awardVariants}>Dev Experiente !</motion.h2>
+                <motion.p variants = {awardVariants}>Programador com ampla gama de conhecimentos.</motion.p>
+                <motion.div variants={awardVariants} className="awardList">
+                    <motion.img variants={awardVariants} src="/award1.png" alt="" />
+                    <motion.img variants={awardVariants} src="/award2.png" alt="" />
+                    <motion.img variants={awardVariants} src="/award3.png" alt="" />
+                </motion.div>
+            </motion.div>
             {/* Scroll SVG*/}
-            <a href="#services" className="scroll">
+            <motion.a 
+                animate={{ y: [0,5], opacity: [0,1,0] }}
+                transition={{
+                    repeat: Infinity,
+                    duration: 4,
+                    ease: "easeInOut",
+                }}
+                href="#services" 
+                className="scroll">
                 <svg
                     width="50px"
                     height="50px"
@@ -33,38 +77,52 @@ const Hero = () => {
                         strokeWidth="1"
                     />
 
-                    <path
+                    <motion.path
+                        animate={{ y: [0,5] }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 4,
+                            ease: "easeInOut",
+                        }}
                         d = "M12 5V8"
                         stroke="white"
                         strokeWidth="1"
                         strokeLinecap="round" 
                     />
                 </svg>
-            </a>
+            </motion.a>
         </div>
         <div className="hSection right">
             {/* follow */}
-            <div className="follow">
-                <a href="/">
+            <motion.div 
+                variants={followVariants} 
+                initial="initial"
+                animate="animate"
+                className="follow"
+            >
+                <motion.a variants={followVariants} href="/">
                     <img src="/instagram.png" alt="" />
-                </a>
-                <a href="/">
+                </motion.a>
+                <motion.a variants={followVariants} href="/">
                     <img src="/facebook.png" alt="" />
-                </a>
-                <a href="/">
+                </motion.a>
+                <motion.a variants={followVariants} href="/">
                     <img src="/youtube.png" alt="" />
-                </a>
-                <div className="followTextContainer">
+                </motion.a>
+                <motion.div variants={followVariants} className="followTextContainer">
                     <div className="followText">
                         ME SIGA
                     </div>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
             {/* BUNBBLE */}
             <Speech/>
 
             {/* CERTIFICATE */}
-            <div className="certificate">
+            <motion.div className="certificate"
+                animate={{ opacity: [0,1] }}
+                transition={{ duration: 3 }}
+            >
                 <img src="/certificado.png" alt="" />
                 <br />
                 CERTIFICAÇÂO HERO GEEK 
@@ -72,10 +130,19 @@ const Hero = () => {
                 PROFISSIONAL 
                 <br />
                 DESENVOLVEDOR WEB E UI DESIGNER
-            </div>
+            </motion.div>
 
             {/* Contact Button */}
-            <a href="/#contact" className="contactlink">
+            <motion.a 
+                href="/#contact" 
+                className="contactlink"
+                animate={{
+                    x: [200,0], opacity: [0,1],
+                }}
+                transition={{
+                    duration: 2,
+                }}
+            >
                 <div className="contactButton">
                     <svg viewBox="0 0 200 200" width="150" height="150">
                         <circle cx="100" cy="100" r="90" fill="pink"/>
@@ -94,8 +161,8 @@ const Hero = () => {
                         </text>
                         <text className="circleText" >
 
-                            <textPath href="#innerCirclePath" startOffset={"50%"}>
-                                E CONTRATE AGORA .
+                            <textPath href="#innerCirclePath" startOffset={"60%"}>
+                                E CONTRATE.
                             </textPath>
                         </text>
 
@@ -115,11 +182,14 @@ const Hero = () => {
                         </svg>
                     </div>
                 </div>
-            </a>
-            
-            
+            </motion.a>
         </div>
-
+        <div className="bg">
+            {/* 3D Animation */}
+            <div className="hImg">
+                <img src="hero1.png" alt="" />
+            </div>
+        </div>
     </div>;
 };
 

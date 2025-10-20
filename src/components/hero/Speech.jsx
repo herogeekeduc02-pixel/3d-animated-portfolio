@@ -4,7 +4,8 @@ import "./hero.css";
 
 const Speech = () => {
     return (
-        <motion.div className = 'bubbleContainer'
+        <motion.div 
+            className = 'bubbleContainer'
             animate= {{opacity: [0,1]}}
             transition={{duration: 1}}
         >
@@ -29,4 +30,4 @@ const Speech = () => {
     )
 }
 
-export default Speech;
+export default Speech

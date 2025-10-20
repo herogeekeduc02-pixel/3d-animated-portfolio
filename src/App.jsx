@@ -2,6 +2,8 @@ import Hero from "./components/hero/Hero";
 import Services from "./components/services/Services";
 import Portifolio from "./components/portifolio/Portifolio";
 import Contact from "./components/contact/Contact";
+import Shape from "./components/hero/Shape.jsx";
+
 
 
 const App = () => {
@@ -24,6 +26,7 @@ const App = () => {
       </section>
       
     </div>
+
   )
 }
 

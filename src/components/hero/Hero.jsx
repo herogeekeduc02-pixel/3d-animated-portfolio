@@ -2,6 +2,10 @@ import { animate } from "motion/react";
 import "./hero.css";
 import Speech from "./Speech.jsx";
 import { motion, stagger } from "motion/react";
+import { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import Shape from "./Shape.jsx";
+
 
 const awardVariants = {
     intial: {
@@ -27,8 +31,8 @@ const followVariants = {
         y: 0,
         opacity: 1,
         transition: {
-            duration: 5,
-            staggerChildren: 0.5,
+            duration: 1,
+            staggerChildren: 0.2,
         }
     } 
 }
@@ -119,7 +123,8 @@ const Hero = () => {
             <Speech/>
 
             {/* CERTIFICATE */}
-            <motion.div className="certificate"
+            <motion.div 
+                className="certificate"
                 animate={{ opacity: [0,1] }}
                 transition={{ duration: 3 }}
             >
@@ -143,7 +148,12 @@ const Hero = () => {
                     duration: 2,
                 }}
             >
-                <div className="contactButton">
+                <motion.div 
+                    className="contactButton"
+                    animate={{ rotate: [0,360] }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "linear", }}
+                
+                >
                     <svg viewBox="0 0 200 200" width="150" height="150">
                         <circle cx="100" cy="100" r="90" fill="pink"/>
 
@@ -181,11 +191,17 @@ const Hero = () => {
                             <polyline points="9 6 18 6 18 15" />
                         </svg>
                     </div>
-                </div>
+                </motion.div>
             </motion.a>
         </div>
+        {/* 3D Animation */}
         <div className="bg">
-            {/* 3D Animation */}
+            <Canvas>
+                <Suspense fallback="loading...">
+                    <Shape />
+                </Suspense>
+            </Canvas>
+
             <div className="hImg">
                 <img src="hero1.png" alt="" />
             </div>
@@ -193,4 +209,4 @@ const Hero = () => {
     </div>;
 };
 
-export default Hero;
+export default Hero

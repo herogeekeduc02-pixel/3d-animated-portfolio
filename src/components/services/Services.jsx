@@ -1,4 +1,3 @@
-import { img, title } from "motion/react-client";
 import ComputadorContainer from "./computador/ComputadorContainer"
 import "./services.css"
 

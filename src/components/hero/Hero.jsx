@@ -8,7 +8,7 @@ import Shape from "./Shape.jsx";
 
 
 const awardVariants = {
-    intial: {
+    initial: { // <--Você tinha botado "intial" ao inves de "initial" denovo.
         x: -100,
         opacity: 0,
     },
@@ -16,14 +16,14 @@ const awardVariants = {
         x: 0,
         opacity: 1,
         transition: {
-            duration: 5,
+            duration: 1,
             staggerChildren: 0.2,
         }
     }
 }
 
 const followVariants = {
-    intial: {
+    initial: { //<--Você tinha botado "intial" ao inves de "initial".
         y: -100,
         opacity: 0,
     },
@@ -49,7 +49,12 @@ const Hero = () => {
                     <br />
                     <span>Eu sou David</span>
             </motion.h1>
-            <motion.div >
+            <motion.div
+                variants={awardVariants} // <--Faltava colocar os elementos de animação dentro da motion.div
+                initial="initial"        //
+                animate="animate"        //
+                className="awards"       //
+            >
                 <motion.h2 variants={awardVariants}>Dev Experiente !</motion.h2>
                 <motion.p variants = {awardVariants}>Programador com ampla gama de conhecimentos.</motion.p>
                 <motion.div variants={awardVariants} className="awardList">

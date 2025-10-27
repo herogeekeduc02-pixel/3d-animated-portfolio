@@ -42,7 +42,7 @@
     justify-content: center;
 }
 
-.serviceImg{
+.serviceIcon img {/*<-- O nome desse é ".serviceIcon img", você tinha colocado .serviceImg, que não existe no jsx*/
     width: 24px;
     height: 24px;
 }

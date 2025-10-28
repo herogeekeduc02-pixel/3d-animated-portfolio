@@ -1,5 +1,41 @@
 import ComputadorContainer from "./computador/ComputadorContainer"
 import "./services.css"
+import Couter from "./Couter"
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
+import { setCurrentStack } from "three/tsl";
+
+const textVariants = {
+   initial: {
+      x: -100,
+      y: -100,
+      opacity: 0,
+   },
+   animate: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: { 
+         duration: 1,
+      },
+   },
+}
+
+const listVariants = {
+   initial: {
+      x: -100,
+      y: -100,
+      opacity: 0,
+   },
+   animate: {
+      x: 0,
+      opacity: 1,
+      transition: { 
+         duration: 1,
+         staggerChildren: 0.5,
+      },
+   },
+}
 
 const service = [
    {
@@ -23,13 +59,31 @@ const service = [
 ]
 
 const Services = () => {
+   const ref = useRef();
+   const isInView = useInView(ref, {margin: "-200px"});
    return (
-      <div className="services">
+      <div className="services" ref={ref}>
          <div className="sSection left">
-            <h1>Como Posso Ajudar ?</h1>
-            <div className="serviceList">
+            <motion.h1 
+               variants={textVariants}
+               initial="initial"
+               animate={isInView ? "animate" : "initial"}
+               className="sTitle"
+            >
+                  Como Posso Ajudar ?
+            </motion.h1>
+            <motion.div 
+               variants={listVariants}
+               initial="initial"
+               animate={isInView ? "animate" : "initial"}
+             className="serviceList">
                {service.map((service) => (
-                  <div className="service" key={service.id}>
+                  <motion.div 
+                     variants={listVariants}
+                     className="service" 
+                     key={service.id}
+                     onClick ={() => setCurrentServiceId(service.id)}
+                  >
                      <div className="serviceIcon">
                         <img src={service.img} alt="" />
                      </div>
@@ -37,8 +91,12 @@ const Services = () => {
                         <h2>{service.title}</h2>
                         <p>{service.counter} Projetos</p>
                      </div>
-                  </div>
+                  </motion.div>
                ))}
+            </motion.div>
+            <div className="couterList">
+               <Couter from ={0} to ={104} text = "Projetos Completos"/>
+               <Couter from ={0} to ={72} text = "Clientes Felizes"/>
             </div>
          </div>
          <div className="sSection right">

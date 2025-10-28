@@ -1,3 +1,42 @@
+@media (max-width: 1536px){
+    .service, .couterList{
+        width: 70%;
+    }
+}
+
+@media (max-width: 1280px){
+    .sTitle{
+        font-size: 128px;
+    }
+
+    .service{
+        width: 100%;
+    }
+}
+@media (max-width: 1024px){
+    sTitle{
+        font-size: 48px;
+    }
+
+    .service, .couterList{
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px){
+    .service{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sSection{
+        width: 100%;
+    }
+
+    .sSection.right{
+        display: none;
+    }
+}
 .services{
     height: 100%;
     display: flex;
@@ -69,3 +108,14 @@
 .service:nth-child(3) .serviceIcon{
     background-color: #6c5c0c;
 }
+
+.couter{
+    display: flex;
+    flex-direction: column;
+    gap:8px;
+}
+
+.couter p{
+    font-size: 13px;
+}
+

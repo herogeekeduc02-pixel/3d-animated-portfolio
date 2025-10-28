@@ -11,7 +11,7 @@ const ComputadorContainer = () => {
                   <Computador/>
                </Stage> 
                <OrbitControls enableZoom={false} autoRotate/>
-               <PerspectiveCamera  position={[-1, 0, 1.8]} zoom={0.6} makeDefault/>
+               <PerspectiveCamera  position={[-1, 0, 1.8]} zoom={0.9} makeDefault/>
             </Suspense>
       </Canvas>
    )

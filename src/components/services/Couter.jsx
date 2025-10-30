@@ -1,5 +1,4 @@
 import { div } from "motion/react-client"
-import { useEffect } from "react";
 import { useState, useRef, useEffect} from "react";
 import { animate, useInView } from "motion/react";
 

@@ -100,7 +100,13 @@ const Services = () => {
             </div>
          </div>
          <div className="sSection right">
-            <ComputadorContainer />
+            {currentServiceId === 1 ?(
+               <ComputadorContainer />
+            ) : currentServiceId === 2 ? (
+               <CarrinhoContainer />
+            ) : (
+               <SetupContainer />
+            )}
          </div>
 
       </div>

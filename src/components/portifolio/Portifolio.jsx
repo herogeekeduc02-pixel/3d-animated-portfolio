@@ -61,7 +61,7 @@ const Portifolio = () => {
       <div className='portifolio'>
          <div className="pList">
             {items.map((item) => (
-
+               <ListItem item={item} key={item.id}/>
             ))}
          </div>
       </div>

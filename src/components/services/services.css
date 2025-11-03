@@ -50,10 +50,20 @@
     justify-content: center;
 }
 
-.sTitle{
-    font-size: 88px;
-    margin-bottom: 24px;
+
+.sTitle {
+    font-size: 64px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-shadow: 0 2px 8px #0006;
+    background: none;
+    padding: 0 16px;
+    line-height: 1.1;
+    word-break: break-word;
 }
+
 
 .serviceList{
     display: flex;
@@ -81,7 +91,7 @@
     justify-content: center;
 }
 
-.serviceIcon img {/*<-- O nome desse é ".serviceIcon img", você tinha colocado .serviceImg, que não existe no jsx*/
+.serviceIcon img {
     width: 24px;
     height: 24px;
 }

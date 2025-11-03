@@ -2,7 +2,7 @@ import ComputadorContainer from "./computador/ComputadorContainer"
 import "./services.css"
 import Couter from "./Couter"
 import { motion, useInView } from "motion/react";
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { setCurrentStack } from "three/tsl";
 
 const textVariants = {
@@ -59,6 +59,7 @@ const service = [
 ]
 
 const Services = () => {
+   const [currentServiceId, setCurrentServiceId] = useState(1);
    const ref = useRef();
    const isInView = useInView(ref, {margin: "-200px"});
    return (

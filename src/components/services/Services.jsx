@@ -1,9 +1,9 @@
 import ComputadorContainer from "./computador/ComputadorContainer"
 import "./services.css"
 import Couter from "./Couter"
-import { motion, useInView } from "motion/react";
-import { useState, useRef } from "react";
-import { setCurrentStack } from "three/tsl";
+import { motion, useInView } from "motion/react"
+import { useState, useRef } from "react"
+import { setCurrentStack } from "three/tsl"
 
 const textVariants = {
    initial: {

@@ -1,7 +1,10 @@
 .portifolio{
-
+    height: 500vh;
+    position: relative;
 }
 .pList{
+    position: sticky;
+    top: 0;
     display: flex;
     height: 100vh;
     width: max-content;

@@ -1,7 +1,7 @@
 import { div } from "motion/react-client"
-import { useState, useRef, useEffect} from "react";
-import { animate, useInView } from "motion/react";
-
+import { useState, useRef, useEffect} from "react"
+import { animate, useInView } from "motion/react"
+import counter from "motion/react"
 
 const Couter = ({from, to, text}) => {
     const [currentServiceId, setCurrentServiceId] = useState(1);

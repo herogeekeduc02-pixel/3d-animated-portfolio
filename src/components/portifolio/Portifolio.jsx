@@ -1,4 +1,5 @@
-import "./portifolio.css";
+import "./portifolio.css"
+import {motion, useScroll} from "motion/react"
 
 const items = [
    {
@@ -57,13 +58,47 @@ const ListItem = ({item}) => {
 }
 
 const Portifolio = () => {
+   const[containerDistance, setContainerDistance] = useState(0)
+
+   const ref = useRef()
+
+   useEffect(() => {
+      const calculateDistance = () => {
+         if (ref.current) {
+            const rect = ref.current.getBoundingClientReact();
+            setContainerDistance(react.left);
+         }
+      }
+
+      calculateDistance();   
+      window.addEventListener("resize", calculateDistance);
+      
+      return () => {
+         window.removeEventListener("resize", calculateDistance);
+      }
+   }, [])
+
+   const{scrollYProgress} = useScroll({target:ref})
+
+   const xTranslate = useTransform(
+      scrollYProgress,
+      [0,1],
+      [0, -window.innerWidth * items.length]
+   )
    return (
-      <div className='portifolio'>
-         <div className="pList">
+      <div className='portifolio' ref ={ref}>
+         <motion.div className= "empty"
+            style ={{width: window.innerWidth - containerDistance}}
+         >
+
             {items.map((item) => (
                <ListItem item={item} key={item.id}/>
             ))}
-         </div>
+         </motion.div>
+         <section/>
+         <section/>
+         <section/>
+         <section/>
       </div>
    );
 };

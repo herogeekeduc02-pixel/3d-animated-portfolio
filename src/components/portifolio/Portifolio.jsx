@@ -1,5 +1,6 @@
+import {useEffect, useRef, useState} from "react"
 import "./portifolio.css"
-import {motion, useScroll} from "motion/react"
+import {motion, useScroll, useInView, useTransform} from "motion/react"
 
 const items = [
    {
@@ -40,18 +41,27 @@ const items = [
 ]
 
 const ListItem = ({item}) => {
+   const ref = useRef(ref)
+
+   const isInView = useInView (ref, {margin: "-100px"})
    return(
-      <div className="pItem">
-         <div className="pImg">
+      <div className="pItem" ref = {ref}>
+         <motion.div className="pImg"
+            variants = {imgVariants}
+            animate ={isInView ? "animate": "initial"}
+         >
             <img src={item.img} alt="" />
-         </div>
-         <div className="pText">
-            <h1>{item.title}</h1>
-            <p>{item.desc}</p>
-            <a href={item.link}>
+         </motion.div>
+         <motion.div className="pText"
+            variants = {imgVariants}
+            animate ={isInView ? "animate": "initial"}
+         >
+            <motion.h1>{item.title}</motion.h1>
+            <motion.p>{item.desc}</motion.p>
+            <motion.a href={item.link}>
                <button>View The project</button>
-            </a>
-         </div>
+            </motion.a>
+         </motion.div>
       </div>
 
    )
@@ -85,10 +95,45 @@ const Portifolio = () => {
       [0,1],
       [0, -window.innerWidth * items.length]
    )
+
+   const imgVariants = {
+      initial: {
+         x:-500,
+         y: 500,
+         opacity: 0
+      },
+      animate: {
+         x: 0,
+         y:0,
+         opacity: 1,
+         transition: {
+            duration: 0.5,
+            ease: "easeImOut",
+         }
+      }
+   }
+
+   const textVariants = {
+      initial: {
+         x: 500,
+         y: 500,
+         opacity: 0
+      },
+      animate: {
+         x: 0,
+         y:0,
+         opacity: 1,
+         transition: {
+            duration: 0.5,
+            ease: "easeImOut",
+            staggerChildren: 0.5,
+         }
+      }
+   }
    return (
       <div className='portifolio' ref ={ref}>
          <motion.div className= "empty"
-            style ={{width: window.innerWidth - containerDistance}}
+            style ={{x:xTranslate}}
          >
 
             {items.map((item) => (
@@ -99,6 +144,20 @@ const Portifolio = () => {
          <section/>
          <section/>
          <section/>
+         <section/>
+         <div className="pProgress">
+            <svg width="100%" height="100%" viewBox="0 0 160 160">
+               <circle 
+                  cx ="80"
+                  cy ="80"
+                  r = "70"
+                  fill = "none"
+                  stroke="#ddd"
+                  strokeWidth={20}               
+               />
+
+            </svg>
+         </div>
       </div>
    );
 };

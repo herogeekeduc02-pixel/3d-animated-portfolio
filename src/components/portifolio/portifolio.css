@@ -1,5 +1,5 @@
 .portifolio{
-    height: 500vh;
+    height: 600vh;
     position: relative;
 }
 .pList{
@@ -71,5 +71,13 @@
 }
 .pItem:nth-child(5){
     background: linear-gradient(to right, #12071f, #210b3a);
+}
+
+.pProgress{
+    position: sticky;
+    width: 80px;
+    height: 80px;
+    left: 0;
+    bottom: 80%;
 }
 

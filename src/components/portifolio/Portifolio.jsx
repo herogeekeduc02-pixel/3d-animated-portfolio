@@ -2,6 +2,41 @@ import {useEffect, useRef, useState} from "react"
 import "./portifolio.css"
 import {motion, useScroll, useInView, useTransform} from "motion/react"
 
+const imgVariants = {
+   initial: {
+      x:-500,
+      y: 500,
+      opacity: 0
+   },
+   animate: {
+      x: 0,
+       y:0,
+      opacity: 1,
+      transition: {
+         duration: 0.5,
+         ease: "easeImOut",
+      }
+   }
+}
+
+const textVariants = {
+   initial: {
+      x: 500,
+      y: 500,
+      opacity: 0
+   },
+   animate: {
+      x: 0,
+      y:0,
+      opacity: 1,
+      transition: {
+      duration: 0.5,
+      ease: "easeImOut",
+         staggerChildren: 0.5,
+      }
+   }
+}
+
 const items = [
    {
       id: 1,
@@ -41,9 +76,11 @@ const items = [
 ]
 
 const ListItem = ({item}) => {
-   const ref = useRef(ref)
+
+   const ref = useRef()
 
    const isInView = useInView (ref, {margin: "-100px"})
+
    return(
       <div className="pItem" ref = {ref}>
          <motion.div className="pImg"
@@ -96,40 +133,6 @@ const Portifolio = () => {
       [0, -window.innerWidth * items.length]
    )
 
-   const imgVariants = {
-      initial: {
-         x:-500,
-         y: 500,
-         opacity: 0
-      },
-      animate: {
-         x: 0,
-         y:0,
-         opacity: 1,
-         transition: {
-            duration: 0.5,
-            ease: "easeImOut",
-         }
-      }
-   }
-
-   const textVariants = {
-      initial: {
-         x: 500,
-         y: 500,
-         opacity: 0
-      },
-      animate: {
-         x: 0,
-         y:0,
-         opacity: 1,
-         transition: {
-            duration: 0.5,
-            ease: "easeImOut",
-            staggerChildren: 0.5,
-         }
-      }
-   }
    return (
       <div className='portifolio' ref ={ref}>
          <motion.div className= "empty"

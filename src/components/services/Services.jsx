@@ -1,6 +1,6 @@
 import ComputadorContainer from "./computador/ComputadorContainer"
 import "./services.css"
-import Couter from "./Couter"
+import Counter from "./Counter"
 import { motion, useInView } from "motion/react"
 import { useState, useRef } from "react"
 import { setCurrentStack } from "three/tsl"
@@ -42,19 +42,19 @@ const service = [
       id: 1,
       img: "/service1.png",
       title: "Desenvolvimento Web",
-   counter: 35,
+      counter: 35,
    },
    {
       id: 2,
       img: "/service2.png",
       title: "Design 3D",
-   counter: 20,
+      counter: 20,
    },
    {
       id: 3,
       img: "/service3.png",
       title: "Aplicativos Mobile",
-   counter: 15,
+      counter: 15,
    }
 ]
 
@@ -96,8 +96,8 @@ const Services = () => {
                ))}
             </motion.div>
             <div className="couterList">
-               <Couter from ={0} to ={104} text = "Projetos Completos"/>
-               <Couter from ={0} to ={72} text = "Clientes Felizes"/>
+               <Counter from ={0} to ={104} text = "Projetos Completos"/>
+               <Counter from ={0} to ={72} text = "Clientes Felizes"/>
             </div>
          </div>
          <div className="sSection right">

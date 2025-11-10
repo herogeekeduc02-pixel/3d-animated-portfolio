@@ -14,7 +14,7 @@ const imgVariants = {
       opacity: 1,
       transition: {
          duration: 0.5,
-         ease: "easeImOut",
+         ease: "easeInOut",
       }
    }
 }
@@ -31,7 +31,7 @@ const textVariants = {
       opacity: 1,
       transition: {
       duration: 0.5,
-      ease: "easeImOut",
+      ease: "easeInOut",
          staggerChildren: 0.5,
       }
    }
@@ -112,11 +112,11 @@ const Portifolio = () => {
    useEffect(() => {
       const calculateDistance = () => {
          if (ref.current) {
-            const rect = ref.current.getBoundingClientReact();
-            setContainerDistance(react.left);
+            const rect = ref.current.getBoundingClientRect();
+            setContainerDistance(rect.left);
          }
       }
-
+   
       calculateDistance();   
       window.addEventListener("resize", calculateDistance);
       
@@ -157,6 +157,16 @@ const Portifolio = () => {
                   fill = "none"
                   stroke="#ddd"
                   strokeWidth={20}               
+               />
+               <motion.circle 
+                  cx ="80"
+                  cy ="80"
+                  r = "70"
+                  fill = "none"
+                  stroke="#dd4c62"
+                  strokeWidth={20}   
+                  pathLength={{pathLength:scrollYProgress}}         
+                  transform="rotate(-90 80 80)"   
                />
 
             </svg>

@@ -84,7 +84,7 @@ const ListItem = ({item}) => {
    return(
       <div className="pItem" ref = {ref}>
          <motion.div className="pImg"
-            variants = {imgVariants}
+            variants = {imgVariants} 
             animate ={isInView ? "animate": "initial"}
          >
             <img src={item.img} alt="" />
@@ -135,7 +135,7 @@ const Portifolio = () => {
 
    return (
       <div className='portifolio' ref ={ref}>
-         <motion.div className= "empty"
+         <motion.div className= "pList"
             style ={{x:xTranslate}}
          >
 

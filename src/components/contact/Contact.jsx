@@ -1,11 +1,25 @@
-import emailjs from "@emailjs/browser";
-
-import {useRef, useState} from "react";
-
 import "./contact.css";
+import emailjs from "@emailjs/browser";
+import {useRef, useState} from "react";
+import { motion } from "motion/react"
 import { span } from "motion/react-client";
 
-import { motion } from "motion/react"
+const listVariant = {
+   initial: {
+      x: 100,
+      opacity: 0,
+   },
+   animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+         duration: 0.5,
+         staggerChildren: 0.2,
+      }
+   }
+}
+
+
 
 const Contact = () => {
    const [success, setSuccess] = useState(false);
